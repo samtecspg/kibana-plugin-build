@@ -1,4 +1,5 @@
-#SPG Kibana plugin dev/build images
+# SPG Kibana plugin dev/build images
+
 The goal of this repo/dockerhub is to provide a series of docker containers, matched to the releases of Kibana/ES that are being supported, such that SPG can build/dev Kibana plugins across those ES releases.
 
 As of day-zero, this is imagined as:
