@@ -13,8 +13,11 @@ RUN git clone --branch $ES_TAG --depth 1  -q https://github.com/elastic/kibana.g
 RUN if [ "$NODE_IMAGE_VERSION" = `cat kibana/.node-version` ] ; then echo "Node image matches kibana requested version - happy" ; else echo "node MISMATCHED to kibana - ABORTING! [node_image: $NODE_IMAGE_VERSION - kibana requests: " `cat kibana/.node-version` "]" ; false ; fi
 RUN cd kibana \
     && npm install
+# handy reconfiguration sed's from @rigon https://github.com/rigon/docker-kibana-dev/blob/master/Dockerfile
+RUN sed -ri "s!^(\#\s*)?(elasticsearch\.url:).*!\2 'http://elasticsearch:9200'!" /kibana/config/kibana.yml
+RUN sed -ri "s!^(\#\s*)?(server\.host:).*!\2 '0.0.0.0'!" /kibana/config/kibana.yml
 
-EXPOSE 5601
+EXPOSE 5601 5603
 WORKDIR /kibana
 CMD ["sleep", "1500"]
 
