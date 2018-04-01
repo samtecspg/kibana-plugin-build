@@ -8,7 +8,9 @@ Day two, this was used by:
 2. Go whereever you have the code you want to build and do a ``docker run --rm -it -v `pwd`:/kibana/plugin samtecspg/kibana-plugin-dev:6.1.1 bash`` (In our project, that place is *[project-root]/plugin*)
 3. (Working in the same window that you ran the `docker run` - which now is at the prompt of the running container) Jump over to the plugin directory `cd plugin`
 4. *IMPORTANT* Edit the `package.json` and set the version equal to what you did the `build-by-version` on (so for what was in set one, the version would be "6.1.1") -- (because of the previous steps, this file should be mounted via the `` `pwd`:/kibana/plugin`` mount so you can edit it inside or outside the container, what ever is easier for you)
-5. (for our project) do a 'yarn install' then a 'yarn build' (as explained in https://github.com/samtecspg/conveyor/blob/master/development.md#build )
+5. (for our project) do the build (as explained in https://github.com/samtecspg/conveyor/blob/master/development.md#build )
+   1. `yarn install`
+   2. `yarn build` 
 6. `exit` or ctrl-d out of the container
 7. look in the `build` directory, and you should see the 
  
