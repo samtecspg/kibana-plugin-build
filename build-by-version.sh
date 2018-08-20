@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ -z "$1" ]
   then
-    echo "Kibana release number required as an argument [For instance '$0 5.6.5']"
+    echo "Kibana release number required as an argument [For instance '$0 6.3.2']"
     exit 1
 fi
 
